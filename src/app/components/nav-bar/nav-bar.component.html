@@ -1,0 +1,17 @@
+<nav class="navbar bg-body-tertiary navigation-bar">
+  <div class="container-fluid">
+    <a routerLink="/"
+      ><img
+        src="https://iconape.com/wp-content/png_logo_vector/android-oreo-8-0-logo.png"
+        alt="Bootstrap"
+        width="50"
+        height="50"
+        (click)="showProduct()"
+    /></a>
+    <form class="d-flex w-25 justify-content-around" role="search">
+      <a class="nav-link" routerLink="/orders" id="cart">Orders</a>
+      <a class="nav-link" routerLink="/cart" id="cart" (click)="showCart()">Cart</a>
+      <a class="nav-link" routerLink="/login" id="cart" (click)="logout()">Logout</a>
+    </form>
+  </div>
+</nav>

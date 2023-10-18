@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div
+    class="card text-center sign-up-card"
+    style="width: 18rem; height: 22rem"
+  >
+    <form (ngSubmit)="onsubmit(signupForm)" #signupForm="ngForm">
+      <div class="card-body">
+        <h5 class="card-title text-center">SIGN UP</h5>
+        <div class="input-group mb-3 mt-4">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="E-mail"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+            id="email"
+            name="signupemail"
+            ngModel
+            required
+            email
+            #signupemail="ngModel"
+            [ngClass]="signupemail.invalid && signupemail.dirty ? 'is-invalid' : ''"
+          />
+          <div *ngIf="signupemail.invalid && signupemail.dirty" class="invalid-feedback">
+            Please enter a valid email.
+          </div>
+        </div>
+        <div class="input-group mb-3 mt-3">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            aria-label="Password"
+            aria-describedby="basic-addon1"
+            id="password"
+            name="password1"
+            ngModel
+            #password1 ="ngModel"
+            minlength="3"
+            [ngClass]="password1.invalid && password1.dirty && password1!==password2? 'is-invalid':''"
+          />
+        </div>
+        <div class="input-group mb-3 mt-3">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Confirm Password"
+            aria-label="Password"
+            aria-describedby="basic-addon1"
+            id="confirmPassword"
+            name="password2"
+            ngModel
+            pattern={{password1.value}}
+            #password2 ="ngModel"
+            minlength="3"
+            [ngClass]="(password2.invalid && password2.dirty) || (password1.value!==password2.value)  ? 'is-invalid':''"
+          />
+          <div *ngIf="(password2.invalid && password2.dirty) || (password1.invalid && password1.dirty)" class="invalid-feedback">
+            Please enter a valid password.
+          </div>
+          <div *ngIf="password2.invalid" class="invalid-feedback">
+            Password missmatch.
+          </div>
+        </div>
+        <p class="sign-in-up">
+          Already a user <a routerLink="/login">Sign In</a>
+        </p>
+        <p id="error"></p>
+        <button href="#" class="btn btn-primary" onsubmit="" [disabled]="signupForm.invalid">Sign Up</button>
+      </div>
+    </form>
+  </div>
+</div>

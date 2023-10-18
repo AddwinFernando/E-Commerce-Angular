@@ -1,0 +1,44 @@
+<div class="container body-background">
+  <div class="container">
+    <table class="table mt-5 table-dark">
+      <thead>
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">Item</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cart">
+          <th scope="row">1</th>
+          <td>{{item.title}}</td>
+          <td>
+            <div class="d-md-flex">
+                <!-- <input
+                type="button"
+                value="-"
+                class="btn btn-outline-dark mx-3"
+                data-field="quantity"
+                (click)="removeFromCart((item.id))"
+              /> -->
+              <p id="quantity{{item.id}}">{{item.quantity}}</p>
+              <!-- <input
+                type="button"
+                value="+"
+                class="btn btn-outline-dark mx-3"
+                data-field="quantity"
+                (click)="addFromCart((item.id))"
+              /> -->
+            </div>
+          </td>
+          <td><p>{{item.price*item.quantity}}</p></td>
+        </tr>
+      </tbody>
+      <tfoot id="tableFooter">Total</tfoot>
+    </table>
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-primary" (click)="checkOut()">Checkout</button>
+    </div> 
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="comp d-flex justify-content-center align-items-center" style="height: 100vh">
+  <div class="card text-center" style="width: 18rem; height:20rem">
+    <div class="card-body">
+      <h5 class="card-title text-center">LOGIN</h5>
+      <form (ngSubmit)="onsubmit(loginForm)" #loginForm="ngForm">
+        <div class="input-group mb-3 mt-5">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="E-mail"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+            id="signInEmail"
+            name="email"
+            ngModel
+            required
+            email
+            #email ="ngModel"
+            [ngClass]="email.invalid && email.dirty ? 'is-invalid':''"
+          />
+          <div *ngIf="email.invalid && email.dirty" class="invalid-feedback">
+            Please enter a valid email.
+          </div>
+        </div>
+        <div class="input-group mb-3 mt-3">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            aria-label="Password"
+            aria-describedby="basic-addon1"
+            id="signInPassword"
+            name="password"
+            ngModel
+            #password ="ngModel"
+            minlength="3"
+            [ngClass]="password.invalid && password.dirty ? 'is-invalid':''"
+          />
+          <div *ngIf="password.invalid && password.dirty" class="invalid-feedback">
+            Please enter a valid password.
+          </div>
+        </div>
+        <p class="sign-in-up">
+          Not registered yet <a routerLink="/sign-up">Sign Up</a>
+        </p>
+        <p id="signInError">{{error}}</p>
+        <button class="btn btn-primary mt5" onsubmit="" [disabled]="loginForm.invalid">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
