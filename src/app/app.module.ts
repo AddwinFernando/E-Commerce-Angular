@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { NavigationEnd } from '@angular/router';
+import { AboutProjectComponent } from './components/about-project/about-project.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavigationEnd } from '@angular/router';
     ProductsComponent,
     LoginComponent,
     OrdersComponent,
-    SignupComponent
+    SignupComponent,
+    AboutProjectComponent
   ],
   imports: [
     BrowserModule,

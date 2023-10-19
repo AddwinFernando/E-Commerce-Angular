@@ -6,9 +6,11 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { authGuardGuard } from './common/auth-guard.guard';
+import { AboutProjectComponent } from './components/about-project/about-project.component';
 
 const routes: Routes = [
-  {path:"",component:ProductsComponent},
+  {path:"",component:AboutProjectComponent},
+  {path:"home",component:ProductsComponent},
   {path:"cart" , component:CartComponent,canActivate:[authGuardGuard]},
   {path:"orders",component:OrdersComponent,canActivate:[authGuardGuard]},
   {path:"login",component:LoginComponent},
