@@ -5,14 +5,28 @@
   >
     <div *ngFor="let item of products">
       <div class="card" style="width: 18rem">
-          <img src="{{ thumbnail }}" class="card-img-top" alt="..."/>
+        <img
+          src="{{ item.image }}"
+          class="card-img-top"
+          alt="..."
+          style="object-fit: cover; width: 280px; height: 220px"
+        />
         <div class="card-body">
-          <h5 class="card-title">{{ item.title.substring(0,20)+"..." }}</h5>
+          <h5 class="card-title">{{ item.title.substring(0, 20) + "..." }}</h5>
           <p class="card-text">
             {{ item.description.substring(0, 50) + "..." }}
           </p>
-          <div class="d-md-flex justify-content-md-end" id="addBtn{{item.id}}">
-            <a class="btn btn-primary" (click)="add((item.id))">Add To Cart</a>
+
+          <div
+            class="d-md-flex justify-content-around align-items-center"
+            id="addBtn{{ item.id }}"
+          >
+            <div class="text-center">
+              <p class="card-text pt-1">${{ item.price }}</p>
+            </div>
+            <div>
+              <a class="btn btn-primary" (click)="add(item.id)">Add To Cart</a>
+            </div>
           </div>
           <!-- <div class="d-md-flex justify-content-md-end visually-hidden" id="addQuant{{item.id}}">
             <input
